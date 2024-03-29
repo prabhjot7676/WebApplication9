@@ -1,0 +1,50 @@
+﻿@model WebApplication9.Models.StudentListViewModel
+
+<h2>List Students</h2>
+<div class="mb-3">
+    <a href="@Url.Action("AddStudent", "Student")" class="btn btn-success">Add Student</a>
+</div>
+<form asp-action="ListStudents" method="get" class="mb-3">
+    <div class="row">
+    <div class="col-md-4 mb-3" >
+        <label for="className" class="form-label">Class Name:</label>
+        <input type="text" id="className" name="className" value="@Model.ClassName" class="form-control" />
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="searchString" class="form-label">Search by Name:</label>
+        <input type="text" id="searchString" name="searchString" value="@Model.SearchString" class="form-control" />
+    </div>
+        <div class="col-md-4 mb-3">
+            <label></label>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Roll Number</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null){
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+                <td>@student.Class</td>
+                <td>@student.RollNumber</td>
+                <td>
+                    <img src="@student.ImageUrl" class="img-fluid" alt="student Image" width="100" height="100" />
+                </td>
+            </tr>
+        }
+        }
+    </tbody>
+</table>

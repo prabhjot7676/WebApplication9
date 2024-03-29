@@ -1,0 +1,29 @@
+﻿@model WebApplication9.Models.Teacher
+
+<h2>Add Teacher</h2>
+
+<form asp-action="AddTeacher" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label"></label>
+        <input asp-for="ImageFile" type="file" accept="image/*" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" required />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Sex" class="form-label"></label>
+        <input asp-for="Sex" class="form-control" required />
+        <span asp-validation-for="Sex" class="text-danger"></span>
+    </div>
+        <input type="hidden" asp-for="ImageUrl" value="jjkj" />
+
+    <button type="submit" class="btn btn-primary">Add Teacher</button>
+</form>

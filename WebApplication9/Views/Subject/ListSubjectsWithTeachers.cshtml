@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebApplication9.Models.Subject>
+
+<h2>List of Subjects with Teachers</h2>
+<div class="mb-3">
+    <a href="@Url.Action("AddSubject", "Subject")" class="btn btn-success">AddSubject</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject Name</th>
+            <th>Teacher(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var subject in Model)
+            {
+                <tr>
+                    <td>@subject.Name</td>
+                    <td>
+                        @foreach (var subjectTeacher in subject.SubjectTeachers)
+                        {
+                            <span>@subjectTeacher.Teacher.Name</span>
+                            <br />
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

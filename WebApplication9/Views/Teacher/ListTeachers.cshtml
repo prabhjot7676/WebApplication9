@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication9.Models.Teacher>
+
+<h2>List of Teachers</h2>
+<div class="mb-3">
+    <a href="@Url.Action("AddTeacher", "Teacher")" class="btn btn-success">Add Teacher</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var teacher in Model)
+            {
+                <tr>
+                    <td>@teacher.Name</td>
+                    <td>@teacher.Age</td>
+                    <td>@teacher.Sex</td>
+                    <td>
+                        <img src="@teacher.ImageUrl" class="img-fluid" alt="Teacher Image" width="100" height="100" />
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

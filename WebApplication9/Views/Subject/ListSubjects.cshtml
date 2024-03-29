@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication9.Models.Subject>
+
+<h2>List of Subjects</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Languages</th>
+            <th>Teachers</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subject in Model)
+        {
+            <tr>
+                <td>@subject.Name</td>
+                <td>@subject.Class</td>
+                <td>
+                    @foreach (var language in subject.Languages)
+                    {
+                        <span>@language.Name</span>
+
+                        <br />
+                    }
+                </td>
+                <td>
+                    @foreach (var subjectTeacher in subject.SubjectTeachers)
+                    {
+                        <span>@subjectTeacher.Teacher.Name</span>
+
+                        <br />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
